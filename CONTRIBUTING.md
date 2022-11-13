@@ -1,32 +1,37 @@
-# Contributing
+# Contributing to Raspberry Pi Documentation
 
-Please read our contribution guidelines before creating an issue or pull request.
+The Raspberry Pi Documentation website is built from Asciidoc source using Asciidoctor and a Jekyll and Python toolchain. The website is automatically deployed to the raspberrypi.com site — pushed to production — using GitHub Actions when a push to the `master` branch occurs.
 
-**Please note that the issue tracker on this repository is for issues with *the contents of the documentation*, not support queries. Please post support queries in the [forums](https://www.raspberrypi.org/forums/).**
+Full instructions for building and running the documentation website locally can be found in the top-level [README.md](README.md) file.
 
-When creating an issue, please:
+## How to Contribute
 
-- Explain the issue as clearly as possible
-- Include a link to the page(s) to which your issue relates
-- Use [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to format your issue, particularly for blocks of code
+In order to contribute new or updated documentation, you must first create a GitHub account and fork the original repository to your own account. You can make changes, save them in your repository, then [make a pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) against this repository. The pull request will appear [in the repository](https://github.com/raspberrypi/documentation/pulls) where it can be assessed by the maintainers, copy edited, and if appropriate, merged with the official repository.
 
-Creating a pull request:
+Unless you are opening a pull request which will only make small corrections, for instance to correct a typo, you are more likely to get traction for your changes if you [open an issue](https://github.com/raspberrypi/documentation/issues) first to discuss the proposed changes. Issues and Pull Requests older than 60 days will [automatically be marked as stale](https://github.com/actions/stale) and then closed 7 days later if there still hasn't been any further activity.
 
-- If your contribution regards typos and spelling mistakes, feel free to fix these, and they'll be merged if they accord with our [in-house style guide](https://github.com/raspberrypilearning/style-guide/blob/master/style-guide.md). Otherwise, always open an issue first. This will allow us to determine whether or not the change should take place. Explain your issue, and we will discuss it with you. If we agree the change is necessary, we will mark it as 'TODO'. Then we will either fix it when we get a chance, or allow a member of the community to supply the change with a pull request.
-- Note that this documentation is intended to be a short and concise set of helpful resources aimed at the majority of users. We will only feature our recommended distribution, Raspberry Pi OS, in detail; in order to keep the documentation manageable, we will not accept additions covering alternative distributions.
+**NOTE:** The default [branch](https://github.com/raspberrypi/documentation/branches) of the repository is the `develop` branch, and this should be the branch you get by default when you initially checkout the repository. You should target any pull requests against the `develop` branch, pull requests against the `master` branch will automatically fail checks and not be accepted.
 
-Find a short tutorial on making changes using GitHub [here](using-github.md).
+**NOTE:** Issues and Pull Requests older than 60 days will [automatically be marked as stale](https://github.com/actions/stale) and then closed 7 days later if there still hasn't been any further activity.
 
-**Please be aware we are not able to deal with all issues and pull requests immediately, so please have patience.**
+Before starting writing your contribution to the documentation, you should take a look at the [style guide](https://github.com/raspberrypi/style-guide/blob/master/style-guide.md).
 
-## Derivatives
+**IMPORTANT**: Because the documentation makes use of the Asciidoc `include` statement, the `xref:` statements inside the documentation do not link back to the correct pages on Github, as Github does not support Asciidoc include functionality (see [#2005](https://github.com/raspberrypi/documentation/issues/2005)). However, these links work correctly when the HTML documentation is built and deployed. Please do not submit Pull Requests fixing link destinations unless you're sure that the link is broken [on the documentation site](https://www.raspberrypi.com/documentation/) itself.
 
-The licence must remain in all derivatives of this work.
+## Type of Content
 
-## Licence
+We welcome contributions from the community, ranging from correcting small typos all the way through to adding entire new sections to the documentation. However, going forward we're going to be fairly targeted about what sort of content we add to the documentation. We are looking to keep the repository, and the documentation, focused on Raspberry Pi-specific things, rather than having generic Linux or computing content.
 
-[![Creative Commons Licence](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+We are therefore deprecating the more generic documentation around using the Linux operating system, ahead of removing these sections entirely at some point in the future as part of a larger update to the documentation site. This move is happening as we feel these sort of more general topics are, ten years on from when the documentation was initially written, now much better covered elsewhere on the web.
 
-***Raspberry Pi Documentation*** by the [Raspberry Pi Foundation](https://www.raspberrypi.org/) is licensed under a [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by-sa/4.0/).
+As such, we're not accepting PRs against these sections unless they're correcting errors.
 
-Based on a work at https://github.com/raspberrypi/documentation
+**NOTE:** We are willing to consider toolchain-related contributions, but changes to the toolchain may have knock-on effects in other places, so it is possible that apparently benign pull requests that make toolchain changes could be refused for fairly opaque reasons. 
+
+## Third-Party Services
+
+In general, we will not accept content that is specific to an individual third-party service or product. We will also not embed, or add links, to YouTube videos showing tutorials on how to configure your Raspberry Pi.
+
+## Licensing 
+
+The documentation is under a [Creative Commons Attribution-Sharealike](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0) licence. By contributing content to this repository, you are agreeing to place your contributions under this licence.
