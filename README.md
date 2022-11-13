@@ -36,7 +36,7 @@ export PATH="$PATH:$GEM_HOME/bin"
 
 and close and relaunch your Terminal window to have these new variables activated. Finally, run
 ```
-$ gem install bundler
+$ gem install bundler -v 2.2.15
 ```
 to install the latest version of the Ruby `bundle` command.
 
@@ -52,15 +52,20 @@ Then you need to install Ruby,
 
 ```
 $ brew install ruby@2.7
+$ gem install bundler -v 2.2.15
 ```
 
 **NOTE:** Homebrew defaults to Ruby 3.0 which is incompatible with Asciidoctor.
+
+**IMPORTANT:** Homebrew has problems using `/bin/zsh`, you may have to change your default shell to `/bin/bash`.
 
 ##### Set up Homebrew Version of Ruby
 
 If you're using `csh` or `tcsh` add the following lines to your `.cshrc` or `.tcshrc`,
 
 ```
+setenv PATH /usr/local/bin:/usr/local/sbin:$PATH
+
 setenv PATH /usr/local/opt/ruby/bin:${PATH}
 setenv PATH ${PATH}:/usr/local/lib/ruby/gems/2.7.0/bin
 setenv LDFLAGS -L/usr/local/opt/ruby@2.7/lib
@@ -71,6 +76,8 @@ setenv PKG_CONFIG_PATH /usr/local/opt/ruby@2.7/lib/pkgconfig
 or if you're using `bash` add the following lines to your `.bash_profile`,
 
 ```
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="$PATH:/usr/local/lib/ruby/gems/2.7.0/bin"
 export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
@@ -78,6 +85,9 @@ export LDFLAGS="-L/usr/local/opt/ruby@2.7/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby@2.7/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby@2.7/lib/pkgconfig"
 ```
+NOTE: If you are running macOS on an Apple Silicon based Mac, rather than an Intel Mac, substitute `/opt/homebrew/` for `/usr/local` in the lines dealing with `ruby@2.7` in the above block.
+
+and then open a new Terminal window to make sure you're using the right version of Python and Ruby.
 
 ##### Install Dependencies
 
@@ -87,6 +97,7 @@ Go ahead and `brew install` the other dependencies,
 $ brew install python@3
 $ brew install ninja
 $ brew install gumbo-parser
+$ pip3 install pyyaml
 ```
 
 ### Install Scripting Dependencies
